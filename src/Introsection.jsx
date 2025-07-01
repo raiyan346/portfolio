@@ -3,19 +3,25 @@ import { motion } from 'framer-motion';
 import { FaCircle } from 'react-icons/fa';
 
 const IntroSection = () => {
-  const scrollToAbout = () => {
-    const about = document.getElementById('about');
-    if (about) about.scrollIntoView({ behavior: 'smooth' });
+  const scrollToContact = () => {
+    const contact = document.getElementById('contact');
+    if (!contact) return;
+
+    const top = contact.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+      top,
+      behavior: 'smooth',
+    });
   };
 
   return (
     <section className="intro hero-cartoon relative" id="hero">
-      {/* Raiyan Name - Top Left */}
+      {/* Raiyan Logo - Top Left */}
       <div className="absolute top-6 left-6 z-10">
-        <span className="raiyan-logo">Raiyan</span>
+        <span className="raiyan-logo text-sm font-mono text-sky-300 tracking-wide">Raiyan</span>
       </div>
 
-      {/* Resume Button Top-Right */}
+      {/* Resume Button - Top Right */}
       <motion.a
         href="/resume.pdf"
         target="_blank"
@@ -34,10 +40,14 @@ const IntroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* Badge */}
-        <div className="intro-badge cartoon-badge">
+        {/* Animated Badge */}
+        <motion.div
+          className="intro-badge cartoon-badge"
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        >
           👋 Hello, I’m <span className="highlight-name">Raiyan B</span> <span className="badge">Designer</span>
-        </div>
+        </motion.div>
 
         {/* Titles */}
         <motion.h1 className="cartoon-title yellow" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
@@ -61,18 +71,16 @@ const IntroSection = () => {
           </p>
         </div>
 
-        {/* Centered Connect Button */}
+        {/* Connect Button */}
         <motion.button
           className="cta-button connect cartoon-button mt-8"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.08, rotate: 1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={scrollToAbout}
+          onClick={scrollToContact}
         >
           <FaCircle className="dot" /> Let’s Connect
         </motion.button>
       </motion.div>
-
-       
     </section>
   );
 };
