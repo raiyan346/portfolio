@@ -22,6 +22,7 @@ const NavBar = () => {
       <div onClick={() => scrollTo('contact')} className="nav-icon" title="Contact">
         <FaEnvelope />
       </div>
+      
     </div>
   );
 };

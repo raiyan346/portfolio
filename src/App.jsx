@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import MainIntroSection from "./MainIntroSection";
-import Hero from "./Hero";
 import About from "./About";
 import Skills from "./Skills";
 import Contact from "./Contact";
 import NavBar from "./Navbar"; 
 import Projects from "./Projects";
+import IntroSection from "./Introsection";
 
 function App() {
   const [introDone, setIntroDone] = useState(false);
@@ -16,8 +16,9 @@ function App() {
 
       {introDone && (
         <>
+        <IntroSection/>
           <NavBar /> {/* ✅ Sidebar appears after intro */}
-          <Hero />
+    
           <About />
           <Skills />
           <Projects/>

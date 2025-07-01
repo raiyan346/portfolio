@@ -21,7 +21,7 @@ const About = () => (
       <span className="highlight"> Front-end Developer</span> who turns ideas into
       delightful digital experiences.
     </p>
-
+        
     <p className="education-text">
       <strong className="title">EDUCATION</strong><br/>
       <span>B.S.Abur Rahman Crescent Institute of Science And Technology</span><br/>
