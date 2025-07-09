@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import MainIntroSection from "./MainIntroSection";
-import About from "./About";
-import Skills from "./Skills";
-import Contact from "./Contact";
-import NavBar from "./Navbar"; 
-import Projects from "./Projects";
-import IntroSection from "./Introsection";
+import { useState } from "react";
+import MainIntroSection from "./components/MainIntroSection";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import NavBar from "./components/Navbar"; 
+import Projects from "./components/Projects";
+import IntroSection from "./components/Introsection";
 
 function App() {
   const [introDone, setIntroDone] = useState(false);

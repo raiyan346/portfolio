@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import profilePic from './techraiyan.jpg';   
+import profilePic from "/techraiyan.jpg";   
 
 const About = () => (
   <motion.section
@@ -26,8 +26,10 @@ const About = () => (
       <strong className="title">EDUCATION</strong><br/>
       <span>B.S.Abur Rahman Crescent Institute of Science And Technology</span><br/>
       <span>B.Tech Computer Science And Engineering</span>
-      <p>Vandalur,Chennai,India.</p>
     </p>
+    <div>
+      <p>Vandalur,Chennai,India.</p>
+    </div>
   </motion.section>
 );
 
