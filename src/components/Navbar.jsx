@@ -1,6 +1,4 @@
-import React from 'react';
 import { FaHome, FaUserAlt, FaCode, FaEnvelope } from 'react-icons/fa';
-import Navbar from './Navbar';
 
 const NavBar = () => {
   const scrollTo = (id) => {
