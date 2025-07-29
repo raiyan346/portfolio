@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -6,16 +6,45 @@ const projects = [
     title: "Figma App Prototype",
     description:
       "An interactive food delivery app designed in Figma to streamline native food orders with smooth UX.",
-    image: "/logos/figma new.jpg", // Replace with your actual image path
+    image: "/logos/figma new.jpg",
     link: "https://www.figma.com/proto/nASJ3Z9Kmdg7GGltBfpN4t/cloud-kitchen?page-id=0%3A1&node-id=2-2&viewport=-1166%2C-190%2C0.84&t=rSdst2PLrRa8Ml2Y-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A2&show-proto-sidebar=1",
+  },
+  {
+    title: "College Website-React",
+    description:
+      "Developed a responsive college website with React, featuring contact forms, image galleries, and smooth animations for an engaging user experience.",
+    image: "/logos/clg-proj.jpg",
+    link: "http://localhost:5174/",
   }
 ];
 
-const Projects = () => {
-  const [index, setIndex] = useState(0);
+const variants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 100 : -100,
+    opacity: 0,
+    scale: 0.9,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+  exit: (direction) => ({
+    x: direction < 0 ? 100 : -100,
+    opacity: 0,
+    scale: 0.85,
+    transition: { duration: 0.5, ease: "easeIn" },
+  }),
+};
 
-  const next = () => setIndex((index + 1) % projects.length);
-  const prev = () => setIndex((index - 1 + projects.length) % projects.length);
+const Projects = () => {
+  const [[index, direction], setIndex] = useState([0, 0]);
+
+  const next = () =>
+    setIndex([(index + 1) % projects.length, 1]);
+  const prev = () =>
+    setIndex([(index - 1 + projects.length) % projects.length, -1]);
 
   return (
     <section
@@ -57,14 +86,15 @@ const Projects = () => {
           ←
         </button>
 
-        {/* Project Card with Image + Text */}
-        <AnimatePresence mode="wait">
+        {/* Animated Project Card */}
+        <AnimatePresence custom={direction} mode="wait">
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: 80 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -80 }}
-            transition={{ duration: 0.6 }}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
             style={{
               display: "flex",
               flexDirection: "row",

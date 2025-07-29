@@ -1,4 +1,5 @@
-import { FaHome, FaUserAlt, FaCode, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUserAlt, FaCode, FaEnvelope, FaProjectDiagram, FaRProject } from 'react-icons/fa';
+import { FaDiagramProject } from 'react-icons/fa6';
 
 const NavBar = () => {
   const scrollTo = (id) => {
@@ -16,6 +17,9 @@ const NavBar = () => {
       </div>
       <div onClick={() => scrollTo('skills')} className="nav-icon" title="Skills">
         <FaCode />
+      </div>
+      <div onClick={() => scrollTo('projects')} className="nav-icon" title="Projects">
+        <FaProjectDiagram />
       </div>
       <div onClick={() => scrollTo('contact')} className="nav-icon" title="Contact">
         <FaEnvelope />
