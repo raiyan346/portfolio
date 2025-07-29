@@ -1,5 +1,5 @@
 import { FaHome, FaUserAlt, FaCode, FaEnvelope, FaProjectDiagram, FaRProject } from 'react-icons/fa';
-import { FaDiagramProject } from 'react-icons/fa6';
+import { FaProjectDiagram } from 'react-icons/fa6';
 
 const NavBar = () => {
   const scrollTo = (id) => {
