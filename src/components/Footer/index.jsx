@@ -55,10 +55,10 @@ export default function Footer() {
                 filter: 'drop-shadow(0 0 12px var(--accent-glow))',
               }}
             >
-              R.
+              Raiyan
             </div>
             <p style={{ color: 'var(--muted)', fontSize: '0.8rem' }}>
-              Frontend Developer & UI/UX Designer
+              Web Engineer & UI/UX Designer
             </p>
           </div>
 

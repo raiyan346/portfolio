@@ -8,7 +8,7 @@ const navLinks = [
   { href: '#projects', label: 'Projects', icon: FiBriefcase },
   { href: '#contact', label: 'Contact', icon: FiMail },
   { href: '#blog', label: 'Blog', icon: FiBookOpen },
-  { href: 'https://www.raiyan.tech/RaiyanResume.pdf', label: 'Resume', icon: FiFileText, isExternal: true },
+  { href: '/raiyan-remue.pdf', label: 'Resume', icon: FiFileText, isExternal: true },
 ];
 
 function DockItem({ href, label, Icon, mouseX, isExternal, activeSection, scrollTo }) {

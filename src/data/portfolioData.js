@@ -4,8 +4,8 @@
 
 export const personalInfo = {
   name: 'Raiyan',
-  title: 'Frontend Developer & UI/UX Designer',
-  roles: ['Frontend Developer', 'UI/UX Designer'],
+  title: 'Web Engineer & UI/UX Designer',
+  roles: ['Web Engineer', 'UI/UX Designer'],
   email: 'alraiyan03@gmail.com',
   github: 'https://github.com/raiyan346',
   linkedin: 'https://www.linkedin.com/in/b-raiyan-73b0082ba/',
@@ -17,7 +17,7 @@ export const personalInfo = {
 
 I love translating wireframes and Figma designs into clean, responsive, and interactive React applications. I am committed to writing modular, efficient code and creating user interfaces that look premium and function flawlessly.`,
   stats: [
-    { label: 'Projects Built', value: 6, suffix: '+' },
+    { label: 'Projects Built', value: 5, suffix: '+' },
     { label: 'Technologies Used', value: 12, suffix: '+' },
   ],
   achievements: [

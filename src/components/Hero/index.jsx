@@ -40,19 +40,20 @@ function RoleSwitcher({ roles }) {
     return () => clearInterval(id);
   }, [roles.length]);
   return (
-    <div style={{ height: '1.2em', overflow: 'hidden', position: 'relative' }}>
+    <div style={{ height: '1.2em', overflow: 'hidden', position: 'relative', lineHeight: '1.2em' }}>
       <AnimatePresence mode="wait">
         <motion.span
           key={idx}
-          initial={{ y: 40, opacity: 0, filter: 'blur(8px)' }}
+          initial={{ y: '100%', opacity: 0, filter: 'blur(8px)' }}
           animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-          exit={{ y: -40, opacity: 0, filter: 'blur(8px)' }}
+          exit={{ y: '-100%', opacity: 0, filter: 'blur(8px)' }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="gradient-text-animated"
           style={{
             display: 'block',
             fontFamily: "'Outfit', sans-serif",
             fontWeight: 800,
+            lineHeight: '1.2em',
           }}
         >
           {roles[idx]}
@@ -231,9 +232,9 @@ export default function Hero() {
                 fontFamily: "'Outfit', sans-serif",
                 fontWeight: 900,
                 color: 'var(--text)',
-                lineHeight: 1.05,
+                lineHeight: 1.15,
                 letterSpacing: '-0.04em',
-                marginBottom: '0.5rem',
+                marginBottom: '0.8rem',
                 textShadow: '0 0 40px rgba(124,58,237,0.15)',
               }}
             >
