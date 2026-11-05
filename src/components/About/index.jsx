@@ -10,8 +10,9 @@ import { FaCss3Alt, FaCode } from 'react-icons/fa';
 import { personalInfo, experiences, skillsByCategory } from '../../data/portfolioData';
 import SectionHeading from '../ui/SectionHeading';
 import ScrollReveal from '../ui/ScrollReveal';
-import headersLogo from '../../assets/headers.png';
-import tnegaLogo from '../../assets/tnega.jpg';
+import headersLogo from '../../assets/headers_logo_new_nobg.png';
+import tnegaLogo from '../../assets/tnega_logo_new_nobg.png';
+import inglozoLogo from '../../assets/inglozone_logo.png';
 
 const iconMap = {
   SiReact, SiJavascript, SiTypescript, SiNextdotjs, SiTailwindcss,
@@ -144,46 +145,92 @@ export default function About() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {experiences.map(exp => {
-                  const logo = exp.id === 1 ? tnegaLogo : headersLogo;
+                  const logoMap = { 1: headersLogo, 2: tnegaLogo, 3: inglozoLogo };
+                  const logo = logoMap[exp.id];
+                  const isCurrent = exp.duration.includes('Present');
                   return (
                     <div
                       key={exp.id}
                       className="glass-card exp-glass-card"
                       style={{
                         padding: '2rem',
-                        border: '1px solid var(--border)',
-                        boxShadow: 'var(--shadow)',
+                        paddingTop: isCurrent ? '3rem' : '2rem',
+                        border: isCurrent ? '1px solid var(--accent)' : '1px solid var(--border)',
+                        boxShadow: isCurrent ? '0 0 28px var(--accent-glow), var(--shadow)' : 'var(--shadow)',
+                        position: 'relative',
+                        overflow: 'visible',
                       }}
                     >
+                      {/* Currently Working Badge */}
+                      {isCurrent && (
+                        <div style={{
+                          position: 'absolute',
+                          top: '10px',
+                          right: '1.25rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          background: 'linear-gradient(135deg, rgba(74,222,128,0.18) 0%, rgba(74,222,128,0.09) 100%)',
+                          border: '1px solid rgba(74,222,128,0.5)',
+                          borderRadius: '100px',
+                          padding: '0.3rem 0.85rem',
+                          backdropFilter: 'blur(12px)',
+                          zIndex: 10,
+                        }}>
+                          <span style={{
+                            width: '7px',
+                            height: '7px',
+                            borderRadius: '50%',
+                            background: '#4ade80',
+                            boxShadow: '0 0 10px #4ade80, 0 0 20px rgba(74,222,128,0.5)',
+                            animation: 'pulse 1.5s ease-in-out infinite',
+                            flexShrink: 0,
+                            display: 'inline-block',
+                          }} />
+                          <span style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 700,
+                            color: '#4ade80',
+                            letterSpacing: '0.06em',
+                            textTransform: 'uppercase',
+                            lineHeight: 1,
+                          }}>Currently Working</span>
+                        </div>
+                      )}
+
                       {/* Title, Company & Logo wrapper */}
                       <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
                         {/* Padded white background logo container */}
                         <div style={{
-                          width: '60px',
-                          height: '60px',
-                          minWidth: '60px',
-                          minHeight: '60px',
+                          width: '58px',
+                          height: '58px',
+                          minWidth: '58px',
+                          minHeight: '58px',
                           backgroundColor: '#ffffff',
                           borderRadius: '14px',
-                          padding: '8px',
+                          padding: exp.id === 3 ? '4px' : '8px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           flexShrink: 0,
-                          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                          boxShadow: isCurrent
+                            ? '0 4px 20px rgba(74,222,128,0.2), 0 2px 8px rgba(0,0,0,0.15)'
+                            : '0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
                           userSelect: 'none',
+                          overflow: 'hidden',
                         }}>
                           <img
                             src={logo}
                             alt={`${exp.company} logo`}
                             style={{
-                              maxWidth: '100%',
-                              maxHeight: '100%',
+                              width: '100%',
+                              height: '100%',
                               objectFit: 'contain',
+                              display: 'block',
                             }}
                           />
                         </div>
-                        <div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
                           <h4
                             style={{
                               fontFamily: "'Outfit', sans-serif",
@@ -197,10 +244,10 @@ export default function About() {
                           </h4>
                           <p
                             style={{
-                              color: 'var(--muted)',
+                              color: isCurrent ? 'var(--accent)' : 'var(--muted)',
                               fontSize: '0.88rem',
                               marginTop: '0.35rem',
-                              fontWeight: 500,
+                              fontWeight: isCurrent ? 600 : 500,
                             }}
                           >
                             {exp.company}
@@ -211,10 +258,13 @@ export default function About() {
                       {/* Duration */}
                       <div
                         style={{
-                          fontSize: '0.88rem',
+                          fontSize: '0.83rem',
                           color: 'var(--text-2)',
                           fontWeight: 500,
-                          opacity: 0.9,
+                          opacity: 0.85,
+                          marginTop: '0.75rem',
+                          marginBottom: '0.75rem',
+                          letterSpacing: '0.02em',
                         }}
                       >
                         {exp.duration}

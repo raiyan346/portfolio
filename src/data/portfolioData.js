@@ -33,11 +33,11 @@ I love translating wireframes and Figma designs into clean, responsive, and inte
 // ============================================================
 export const experiences = [
   {
-    id: 1,
-    title: 'Software Development Intern',
-    company: 'Headers Software Solutions Pvt Ltd',
-    duration: 'Jun 2024 — Jul 2024',
-    description: 'Learned problem-solving techniques, code optimization, and software development fundamentals while working on practical development tasks and improving debugging skills.'
+    id: 3,
+    title: 'Frontend Developer',
+    company: 'Inglozone',
+    duration: 'Oct 2026 — Present',
+    description: 'Working on building and enhancing responsive web applications using React and JavaScript. Integrating backend APIs, developing admin and customer dashboards, and improving UI/UX while ensuring smooth functionality and performance.'
   },
   {
     id: 2,
@@ -45,6 +45,13 @@ export const experiences = [
     company: 'Tamil Nadu e-Governance Agency (TNeGA)',
     duration: 'Jun 2025 — Jul 2025',
     description: 'Worked on agricultural dataset annotation using CVAT, and YOLOv8 models for computer vision applications under a Tamil Nadu Government initiative, supporting AI training workflows and data preparation.'
+  },
+  {
+    id: 1,
+    title: 'Software Development Intern',
+    company: 'Headers Software Solutions Pvt Ltd',
+    duration: 'Jun 2024 — Jul 2024',
+    description: 'Learned problem-solving techniques, code optimization, and software development fundamentals while working on practical development tasks and improving debugging skills.'
   }
 ];
 
